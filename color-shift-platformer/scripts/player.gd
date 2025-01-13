@@ -41,6 +41,12 @@ const COLOR_LAYERS = {
 	PlayerColor.YELLOW: 4  # Layer 4 for yellow collision
 }
 
+const COLOR_MASKS = {
+	PlayerColor.RED: 2,
+	PlayerColor.BLUE: 3,
+	PlayerColor.YELLOW: 4,
+}
+
 # Dictionary mapping colors to their visual colors
 const COLOR_VALUES = {
 	PlayerColor.RED: Color(1, 0, 0, 1),      # Pure red
@@ -200,8 +206,13 @@ func set_collision_color(color: PlayerColor):
 	for layer in COLOR_LAYERS.values():
 		set_collision_layer_value(layer, false)
 	
+	set_collision_mask_value(2, false)
+	set_collision_mask_value(3, false)
+	set_collision_mask_value(4, false)
+	
 	# Enable collision only for the matching color
 	set_collision_layer_value(COLOR_LAYERS[color], true)
+	set_collision_mask_value(COLOR_MASKS[color], true)
 
 func spawn_color_particles(color: PlayerColor):
 	if color_particles:

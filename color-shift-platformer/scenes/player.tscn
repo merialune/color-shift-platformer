@@ -53,6 +53,7 @@ point_count = 3
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_uhooh")
 JUMP_RELEASE_FORCE = 0.2
 

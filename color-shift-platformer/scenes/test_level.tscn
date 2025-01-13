@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo31onnmgxgpd"]
+
+[ext_resource type="PackedScene" uid="uid://2fq75g1n3ae1" path="res://scenes/player.tscn" id="1_8mvfr"]
+[ext_resource type="PackedScene" uid="uid://pn48o1n6cj1g" path="res://scenes/killzone.tscn" id="2_ed2xq"]
+[ext_resource type="PackedScene" uid="uid://men4hv1v2lx5" path="res://scenes/small_red_platform.tscn" id="3_dc8fv"]
+[ext_resource type="PackedScene" uid="uid://cewlcv734imtl" path="res://scenes/platform.tscn" id="4_sog1w"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hhl3v"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_8mvfr")]
+position = Vector2(98, 56)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+
+[node name="Killzone" parent="." instance=ExtResource("2_ed2xq")]
+position = Vector2(494, 359)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_hhl3v")
+
+[node name="SmallRedPlatform" parent="." instance=ExtResource("3_dc8fv")]
+position = Vector2(98, 81)
+
+[node name="Platform" parent="." instance=ExtResource("4_sog1w")]
+position = Vector2(130, 79)
+collision_mask = 15

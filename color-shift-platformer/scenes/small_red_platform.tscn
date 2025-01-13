@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://men4hv1v2lx5"]
+
+[ext_resource type="Script" path="res://scripts/small_red_platform.gd" id="1_tpbtr"]
+[ext_resource type="Texture2D" uid="uid://b807pjykatlpt" path="res://assets/sprites/basic_prototype_tileset/basic_prototype_tileset.png" id="2_j7tvy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnebf"]
+size = Vector2(14, 14)
+
+[node name="SmallRedPlatform" type="AnimatableBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_tpbtr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_j7tvy")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tnebf")
