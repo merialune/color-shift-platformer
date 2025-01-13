@@ -183,7 +183,7 @@ func change_color(new_color: PlayerColor):
 	).set_trans(Tween.TRANS_SINE)
 	
 	# Optional: Add color change effects
-	# spawn_color_particles(new_color)
+	spawn_color_particles(new_color)
 	# play_color_sound(new_color)
 	
 	current_color = new_color
@@ -203,12 +203,11 @@ func set_collision_color(color: PlayerColor):
 	# Enable collision only for the matching color
 	set_collision_layer_value(COLOR_LAYERS[color], true)
 
-# func spawn_color_particles(color: PlayerColor):
-# 	if color_particles:
+func spawn_color_particles(color: PlayerColor):
+	if color_particles:
 		# Set particle color
-# 		var particle_material = color_particles.process_material
-# 		particle_material.color = COLOR_VALUES[color]
+		color_particles.color = COLOR_VALUES[color]
 		
 		# Emit burst of particles
-# 		color_particles.restart()
-# 		color_particles.emitting = true
+		color_particles.restart()
+		color_particles.emitting = true
